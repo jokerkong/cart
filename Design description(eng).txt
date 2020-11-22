@@ -1,0 +1,18 @@
+description of function design
+
+The observer mode was chosen on the basis that a message notification is issued whenever the order status of the shopping cart changes, and that it should not only notify the new component.
+And since the project will need to send reports through different channels in the future, the components that send reports on this product think it makes sense to use a policy pattern design.
+
+Use observer mode for message publishing
+rtOrderMsg.java  -- Publisher (observed)
+CurrentOrderStatusDisplay.java --observer
+
+The release mode USES the policy pattern (considering that the requirement body will add other channel releases later)
+SendReport.java Abstract  class for sending mode
+SendReportByEmail.java    The implementation class for the abstract class SendReport
+
+SendBehavior.java --Transmission mode interface
+EmailChannel.java --An implementation class for the send mode interface
+
+others 
+IsWithinTm.java  --Determine whether the time is within 5 minutes (to be optimized)

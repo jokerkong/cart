@@ -1,0 +1,19 @@
+功能设计描述
+考虑到只要购物车的订单状态一旦发生变化就会发布消息通知，且不应该只通知新组建，在这个基础上所以选择了观察者模式。
+并且由于项目今后还需要通过不同的渠道发出报告，在这个积出上发送报告的组件们，个人认为使用策略模式设计比较合理。
+
+
+使用观察者模式进行消息发布
+CartOrderMsg.java --发布者 （被观察者）
+CurrentOrderStatusDisplay.java --观察者
+
+
+发布方式使用 策略模式 （考虑到需求体到后期会添加其他渠道发布的情况）
+SendReport.java --发送方式的抽象类
+SendReportByEmail.java  --抽象类SendReport的实现类
+
+SendBehavior.java --发送方式接口
+EmailChannel.java --发送方式接口的实现类
+
+其他
+IsWithinTm.java --判断时间是否在5分钟内（待优化）
